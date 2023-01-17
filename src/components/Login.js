@@ -1,4 +1,4 @@
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Navigate } from 'react-router-dom';
 import axios from 'axios';
 import Swal from 'sweetalert2'
 import withReactContent from 'sweetalert2-react-content'
@@ -57,8 +57,12 @@ function Login () {
             })
     }
 
+    const token = localStorage.getItem('token');
+
     return (
         <>
+        {token && <Navigate replace to="/listado" />}
+
         <h2>Fromulario de Login</h2>
         <form onSubmit={submitHandler}>
             <label>

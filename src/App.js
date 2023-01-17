@@ -1,13 +1,26 @@
 import { Routes, Route } from 'react-router-dom';
+import Header from './components/Header';
+import Footer from './components/Footer';
 import Login from "./components/Login";
 import Listado from './components/Listado';
 
+// Styles
+import './css/bootstrap.min.css'
+import './css/app.css';
+
+
 function App() {
   return (
-    <Routes>
-      <Route exact path="/" element={<Login/>} />
-      <Route path="/listado" element={<Listado />} />
-    </Routes>
+    <>
+      <Header />
+      <div className='container'>
+        <Routes>
+          <Route exact path="/" element={<Login/>} />
+          <Route path="/listado" element={<Listado />} />
+        </Routes>
+      </div>
+      <Footer/>
+    </>
   );
 }
 
