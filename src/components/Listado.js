@@ -21,18 +21,23 @@ function Listado () {
     return(
         <>
             {!token && <Navigate replace to="/" />}
-
             <div className="row">
-                <div className="col-3">
-                    <div className="card" style={{width: "18rem"}}>
-                        <img src="" className="card-img-top" alt="..." />
-                        <div className="card-body">
-                            <h5 className="card-title">Card title</h5>
-                            <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            <Link to="#" className="btn btn-primary">Go somewhere</Link>
+            {moviesList.length > 0 && 
+            moviesList.map(movie => {
+                return (
+                    <div className="col-3" key={movie.id}>
+                        <div className="card" style={{width: "18rem"}}>
+                            <img src={`http://image.tmdb.org/t/p/original${movie.poster_path}`} className="card-img-top" alt="..." />
+                            <div className="card-body">
+                                <h5 className="card-title">{movie.title}</h5>
+                                <p className="card-text">{movie.overview}</p>
+                                <Link to="#" className="btn btn-primary">Go somewhere</Link>
+                            </div>
                         </div>
                     </div>
-                </div>
+                );
+            })
+            }
             </div>
         </>
     );

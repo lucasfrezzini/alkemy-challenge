@@ -13,12 +13,12 @@ function App() {
   return (
     <>
       <Header />
-      <div className='container'>
+      <main className='container main'>
         <Routes>
           <Route exact path="/" element={<Login/>} />
           <Route path="/listado" element={<Listado />} />
         </Routes>
-      </div>
+      </main>
       <Footer/>
     </>
   );
