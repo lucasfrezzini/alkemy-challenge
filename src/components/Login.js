@@ -1,7 +1,7 @@
 import { useNavigate, Navigate } from 'react-router-dom';
 import axios from 'axios';
-import Swal from 'sweetalert2'
-import withReactContent from 'sweetalert2-react-content'
+import Swal from 'sweetalert2';
+import withReactContent from 'sweetalert2-react-content';
 
 const MySwal = withReactContent(Swal);
 
@@ -52,12 +52,12 @@ function Login () {
                     title: 'Perfecto, ingresaste correctamente.'
                 });
                 const tokenRecibido = res.data.token;
-                localStorage.setItem('token', tokenRecibido);
+                sessionStorage.setItem('token', tokenRecibido);
                 navigate('/listado');
             })
     }
 
-    const token = localStorage.getItem('token');
+    let token = sessionStorage.getItem('token');
 
     return (
         <>
