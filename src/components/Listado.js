@@ -1,6 +1,6 @@
 import { Navigate , Link } from "react-router-dom";
-import axios from 'axios';
 import { useEffect, useState } from "react";
+import axios from 'axios';
 import Swal from 'sweetalert2';
 import withReactContent from 'sweetalert2-react-content';
 
@@ -36,7 +36,9 @@ function Listado () {
                 return (
                     <div className="col-3 my-4" key={idx}>
                         <div className="card" style={{width: "18rem"}}>
-                            <img src={`http://image.tmdb.org/t/p/original${movie.poster_path}`} className="card-img-top" alt="..." />
+                            <Link to={`/detalle?movieID=${movie.id}`} >
+                                <img src={`http://image.tmdb.org/t/p/original${movie.poster_path}`} className="card-img-top" alt="..." />
+                            </Link>
                             <div className="card-body">
                                 <h5 className="card-title">{movie.title}</h5>
                                 <p className="card-text">{movie.overview.substring(0, 200)}...</p>

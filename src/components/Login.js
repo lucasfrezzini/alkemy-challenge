@@ -75,7 +75,7 @@ function Login () {
                 <input type="password" name="password" />
             </label>
             <br />
-            <button type="submit">Ingresar</button>
+            <button className='mt-3' type="submit">Ingresar</button>
         </form>
         </>
     );

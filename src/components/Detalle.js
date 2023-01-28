@@ -19,8 +19,6 @@ export default function Detalle () {
     useEffect(() => {
         const endPoint = `https://api.themoviedb.org/3/movie/${movieID}?api_key=d8ae4181638365c66eeed968ae25b657&language=es-ES`;
 
-        console.log(endPoint);
-
         axios.get(endPoint)
             .then(response => {
                 const apiData = response.data;
@@ -33,8 +31,6 @@ export default function Detalle () {
                 })
             })
     }, [setMovieData])
-
-    console.log(movieData);
 
     return(
         <>
@@ -53,15 +49,14 @@ export default function Detalle () {
                 <p className="lead">{movieData.overview}</p>
                 <p>Estreno: {movieData.release_date}</p>
                 <p>Ganancia: {movieData.revenue}</p>
-                <p>Generos: 
-                    <ul>
-                    {movieData.genres.map((genre, idx) => {
-                        return(
-                            <li key={idx}>{genre.name}</li>
-                        );
-                    })}
-                    </ul>
-                </p>
+                <p>Generos:</p>
+                <ul>
+                {movieData.genres.map((genre, idx) => {
+                    return(
+                        <li key={idx}>{genre.name}</li>
+                    );
+                })}
+                </ul>
             </div>
             </div>
         </div>
