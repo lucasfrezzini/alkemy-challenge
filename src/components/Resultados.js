@@ -6,7 +6,7 @@ import withReactContent from 'sweetalert2-react-content';
 
 const MySwal = withReactContent(Swal);
 
-export default function Resultados () {
+export default function Resultados (props) {
     let token = sessionStorage.getItem('token');
 
     let query = new URLSearchParams(window.location.search);
@@ -42,13 +42,20 @@ export default function Resultados () {
             {
             moviesResults.map((oneMovie, idx) => {
                 return (
-                    <div className="col-3 my-4" key={idx}>
-                        <div className="card" style={{width: "18rem"}}>
+                    <div className="col-6 col-md-3 my-4" key={idx}>
+                        <div className="card" >
                             <Link to={`/detalle?movieID=${oneMovie.id}`}>
                                 <img src={`http://image.tmdb.org/t/p/original${oneMovie.poster_path}`} className="card-img-top" alt="..." />
                             </Link>
+                            <button 
+                                onClick={props.addOrRemoveFromFavs} 
+                                data-movie-id={oneMovie.id}
+                                className="btn_favorite added">
+                                    🖤
+                            </button>
                             <div className="card-body">
                                 <h5 className="card-title">{oneMovie.title}</h5>
+                                <p className="card-text">{oneMovie.overview.substring(0, 200)}...</p>
                                 <Link to={`/detalle?movieID=${oneMovie.id}`} className="btn btn-primary">View detail</Link>
                             </div>
                         </div>
