@@ -2,6 +2,7 @@ import { Routes, Route } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import Header from './components/Header';
 import Footer from './components/Footer';
+import Home from './components/Home';
 import Login from "./components/Login";
 import Listado from './components/Listado';
 import Detalle from './components/Detalle';
@@ -72,17 +73,20 @@ function App() {
 
   return (
     <>
-      <Header favorites={favorites} />
-      <main className='container main'>
-        <Routes>
-          <Route exact path="/" element={<Login/>} />
-          <Route path="/listado" element={<Listado addOrRemoveFromFavs={addOrRemoveFromFavs} />} />
-          <Route path="/detalle" element={<Detalle />} />
-          <Route path="/resultados" element={<Resultados addOrRemoveFromFavs={addOrRemoveFromFavs} />} />
-          <Route path="/favoritos" element={<Favoritos favorites={favorites} addOrRemoveFromFavs={addOrRemoveFromFavs} />} />
-        </Routes>
-      </main>
-      <Footer/>
+      <div className='layout'>
+        <Header favorites={favorites} />
+        <main className='main'>
+          <Routes>
+            <Route exact path="/" element={<Home />} />
+            <Route path="/login" element={<Login/>} />
+            <Route path="/listado" element={<Listado addOrRemoveFromFavs={addOrRemoveFromFavs} />} />
+            <Route path="/detalle" element={<Detalle />} />
+            <Route path="/resultados" element={<Resultados addOrRemoveFromFavs={addOrRemoveFromFavs} />} />
+            <Route path="/favoritos" element={<Favoritos favorites={favorites} addOrRemoveFromFavs={addOrRemoveFromFavs} />} />
+          </Routes>
+        </main>
+        <Footer/>
+      </div>
     </>
   );
 }

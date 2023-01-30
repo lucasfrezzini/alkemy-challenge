@@ -45,7 +45,7 @@ export default function Detalle () {
                 <img src={`http://image.tmdb.org/t/p/original${movieData.poster_path}`} className="d-block mx-lg-auto img-fluid" alt={movieData.title} width="700" height="500" loading="lazy" />
             </div>
             <div className="col-lg-6">
-                <h1 className="display-5 fw-bold lh-1 mb-3">{movieData.title}</h1>
+                <h1 className="display-5 lh-1 mb-3">{movieData.title}</h1>
                 <p className="lead">{movieData.overview}</p>
                 <p>Estreno: {movieData.release_date}</p>
                 <p>Ganancia: {movieData.revenue}</p>

@@ -5,7 +5,7 @@ import withReactContent from 'sweetalert2-react-content';
 
 const MySwal = withReactContent(Swal);
 
-export default function Buscador () {
+export default function SearchForm () {
     const navigate = useNavigate()
 
     const submitHandler = e => {
