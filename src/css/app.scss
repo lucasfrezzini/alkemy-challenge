@@ -60,22 +60,41 @@ footer {
     border-top: 1px solid #e3e3e3;
 }
 
-.btn_favorite {
-    width: 30px;
-    height: 30px;
-    border-radius: 50px;
-    background-color: white;
-    position: absolute;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    top: 10px;
-    right: 10px;
-    cursor: pointer;
-    border: 2px solid black;
-    font-size: 12px;
+.btn {
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1rem;
+    padding: 8px 15px;
+    border-radius: 34px;
+    
+
+    .bi {
+        margin-left: 5px;
+        transition: all .2s;
+    }
+    
+    &:hover .bi {
+        margin-left: 10px;
+    }
 }
 
-.btn_favorite.added {
-    border: 2px solid green;
+.btn_primary {
+    color: var(--black);
+    background-color: var(--primary);
+    
+    &:hover {
+        color: var(--black);
+        background-color: var(--primary);
+    }
+}
+
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 50px;
+
+    h2 {
+        margin: 0;
+    }
 }

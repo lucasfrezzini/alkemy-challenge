@@ -42,13 +42,11 @@ function App() {
 
     const imgURL = parent.querySelector('img').getAttribute('src');
     const title = parent.querySelector('h5').innerText;
-    const overview = parent.querySelector('p').innerText;
     const movieID = btn.dataset.movieId;
 
     const movieData = {
       imgURL,
       title,
-      overview,
       movieID
     }
 
@@ -77,13 +75,13 @@ function App() {
         <Header favourites={favourites} />
         <main className='main'>
           <Routes>
-            <Route exact path="/" element={<Home />} />
+            <Route exact path="/" element={<Home addOrRemoveFromFavs={addOrRemoveFromFavs} />} />
             <Route path="/login" element={<Login />} />
             <Route path="/movies" element={<List addOrRemoveFromFavs={addOrRemoveFromFavs} typeShow={'movie'} />} />
             <Route path="/series" element={<List addOrRemoveFromFavs={addOrRemoveFromFavs} typeShow={'serie'} />} />
             <Route path="/detail" element={<Detail />} />
             <Route path="/results" element={<Results addOrRemoveFromFavs={addOrRemoveFromFavs} />} />
-            <Route path="/favourites" element={<Favourites favourites={favourites} addOrRemoveFromFavs={addOrRemoveFromFavs} />} />
+            <Route path="/favourites" element={<Favourites addOrRemoveFromFavs={addOrRemoveFromFavs} />} />
           </Routes>
         </main>
         <Footer/>
