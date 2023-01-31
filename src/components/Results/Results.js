@@ -44,7 +44,7 @@ export default function Results (props) {
                 return (
                     <div className="col-6 col-md-3 my-4" key={idx}>
                         <div className="card" >
-                            <Link to={`/detalle?movieID=${oneMovie.id}`}>
+                            <Link to={`/detail?movieID=${oneMovie.id}`}>
                                 <img src={`http://image.tmdb.org/t/p/original${oneMovie.poster_path}`} className="card-img-top" alt="..." />
                             </Link>
                             <button 

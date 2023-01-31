@@ -15,7 +15,7 @@ export default function Favourites(props) {
                 return (
                     <div className="col-6 col-md-3 my-4" key={idx}>
                         <div className="card">
-                            <Link to={`/detalle?movieID=${movie.movieID}`} >
+                            <Link to={`/detail?movieID=${movie.movieID}`} >
                                 <img src={movie.imgURL} className="card-img-top" alt="..." />
                             </Link>
                             <button 
@@ -28,7 +28,7 @@ export default function Favourites(props) {
                             <div className="card-body">
                                 <h5 className="card-title">{movie.title}</h5>
                                 <p className="card-text">{movie.overview.substring(0, 200)}...</p>
-                                <Link to={`/detalle?movieID=${movie.movieID}`} className="btn btn-primary">View detail</Link>
+                                <Link to={`/detail?movieID=${movie.movieID}`} className="btn btn-primary">View detail</Link>
                             </div>
                         </div>
                     </div>

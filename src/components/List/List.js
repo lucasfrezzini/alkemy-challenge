@@ -32,13 +32,14 @@ function List(props) {
     return(
         <>
             {!token && <Navigate replace to="/login" />}
+            <div className="container">
             <div className="row">
             {
             moviesList.map((movie, idx) => {
                 return (
-                    <div className="col-6 col-md-3 my-4" key={idx}>
+                    <div className="col-6 col-md-2 my-4" key={idx}>
                         <div className="card">
-                            <Link to={`/detalle?movieID=${movie.id}`} >
+                            <Link to={`/detail?movieID=${movie.id}`} >
                                 <img src={`http://image.tmdb.org/t/p/original${movie.poster_path}`} className="card-img-top" alt="..." />
                             </Link>
                             <button 
@@ -50,7 +51,7 @@ function List(props) {
                             {/* 💚 */}
                             <div className="card-body">
                                 <h5 className="card-title">{movie.title}</h5>
-                                <p className="card-text">{movie.overview.substring(0, 200)}...</p>
+                                {/* <p className="card-text">{movie.overview.substring(0, 200)}...</p> */}
                                 <Link to={`/detail?movieID=${movie.id}`} className="btn btn-primary">View detail</Link>
                             </div>
                         </div>
@@ -58,6 +59,7 @@ function List(props) {
                 );
             })
             }
+            </div>
             </div>
         </>
     );

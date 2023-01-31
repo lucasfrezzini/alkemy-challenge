@@ -55,7 +55,7 @@ function Login () {
                 });
                 const tokenRecibido = res.data.token;
                 sessionStorage.setItem('token', tokenRecibido);
-                navigate('/movies');
+                navigate('/');
             })
     }
 
@@ -63,7 +63,7 @@ function Login () {
 
     return (
         <>
-        {token && <Navigate replace to="/movies" />}
+        {token && <Navigate replace to="/" />}
 
         <h2>Login form</h2>
         <form onSubmit={submitHandler}>
