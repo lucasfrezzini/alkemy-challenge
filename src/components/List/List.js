@@ -4,16 +4,18 @@ import axios from 'axios';
 import Swal from 'sweetalert2';
 import withReactContent from 'sweetalert2-react-content';
 
+import './List.scss';
+
 const MySwal = withReactContent(Swal);
 
 
-function Listado (props) {
+function List(props) {
 
     let token = sessionStorage.getItem('token');
     const [moviesList, setMoviesList] = useState([]);
     
     useEffect(() => {
-        const endPoint = "https://api.themoviedb.org/3/discover/movie?api_key=d8ae4181638365c66eeed968ae25b657&language=es-ES&sort_by=popularity.desc&include_adult=true"
+        const endPoint = "https://api.themoviedb.org/3/discover/movie?api_key=d8ae4181638365c66eeed968ae25b657&language=en-US&sort_by=popularity.desc&include_adult=true"
         axios.get(endPoint)
             .then(response => {
                 const apiData = response.data;
@@ -22,14 +24,14 @@ function Listado (props) {
             .catch(e => {
                 MySwal.fire({
                     icon: 'error',
-                    title: 'Tuvimos un error, intente en unos minutos..'
+                    title: 'We have an error, please try again in a few minutes...'
                 })
             })
     }, [setMoviesList])
 
     return(
         <>
-            {!token && <Navigate replace to="/" />}
+            {!token && <Navigate replace to="/login" />}
             <div className="row">
             {
             moviesList.map((movie, idx) => {
@@ -49,7 +51,7 @@ function Listado (props) {
                             <div className="card-body">
                                 <h5 className="card-title">{movie.title}</h5>
                                 <p className="card-text">{movie.overview.substring(0, 200)}...</p>
-                                <Link to={`/detalle?movieID=${movie.id}`} className="btn btn-primary">View detail</Link>
+                                <Link to={`/detail?movieID=${movie.id}`} className="btn btn-primary">View detail</Link>
                             </div>
                         </div>
                     </div>
@@ -61,4 +63,4 @@ function Listado (props) {
     );
 }
 
-export default Listado;
+export default List;

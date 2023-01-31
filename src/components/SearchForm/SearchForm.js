@@ -3,6 +3,8 @@ import { useNavigate, Navigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import withReactContent from 'sweetalert2-react-content';
 
+import './SearchForm.scss';
+
 const MySwal = withReactContent(Swal);
 
 export default function SearchForm () {
@@ -15,24 +17,24 @@ export default function SearchForm () {
         if (keyword.length === 0) {
             MySwal.fire({
                 icon: 'error',
-                title: 'Tienes que introducir una palabra clave...'
+                title: 'Write something...'
             })
         } else if (keyword.length < 4) {
             MySwal.fire({
                 icon: 'error',
-                title: 'Tienes que introducir más de 4 letras'
+                title: 'At least 4 characters...'
             })
         } else {
             e.currentTarget.keyword.value = "";
-            navigate(`/resultados?search=${keyword}`);
+            navigate(`/results?search=${keyword}`);
         }
 
     }
     
     return(
         <form className="d-flex" role="search" onSubmit={submitHandler}>
-            <input className="form-control me-2" type="search" name="keyword" placeholder="Buscá tu pelicula..." aria-label="Search" />
-            <button className="btn btn-outline-success" type="submit">Buscar</button>
+            <input className="form-control me-2" type="search" name="keyword" placeholder="Search your movie or serie" aria-label="Search" />
+            <button className="btn btn-outline-success" type="submit">Search</button>
         </form>
     )
 }

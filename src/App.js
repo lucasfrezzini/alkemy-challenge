@@ -1,23 +1,23 @@
 import { Routes, Route } from 'react-router-dom';
 import { useState, useEffect } from 'react';
-import Header from './components/Header';
-import Footer from './components/Footer';
-import Home from './components/Home';
-import Login from "./components/Login";
-import Listado from './components/Listado';
-import Detalle from './components/Detalle';
-import Resultados from './components/Resultados';
-import Favoritos from './components/Favoritos';
+import Header from './components/Header/Header';
+import Footer from './components/Footer/Footer';
+import Home from './components/Home/Home';
+import Login from "./components/Login/Login";
+import List from './components/List/List';
+import Detail from './components/Detail/Detail';
+import Results from './components/Results/Results';
+import Favourites from './components/Favourites/Favourites';
 
 
 // Styles
 import './css/bootstrap.min.css'
-import './css/app.css';
+import './css/app.scss';
 
 
 function App() {
   
-  const [favorites, setFavorites ] = useState([]);
+  const [favourites, setFavorites ] = useState([]);
 
   useEffect(()=> {
       const favsInLocal = localStorage.getItem('favs');
@@ -74,15 +74,16 @@ function App() {
   return (
     <>
       <div className='layout'>
-        <Header favorites={favorites} />
+        <Header favourites={favourites} />
         <main className='main'>
           <Routes>
             <Route exact path="/" element={<Home />} />
-            <Route path="/login" element={<Login/>} />
-            <Route path="/listado" element={<Listado addOrRemoveFromFavs={addOrRemoveFromFavs} />} />
-            <Route path="/detalle" element={<Detalle />} />
-            <Route path="/resultados" element={<Resultados addOrRemoveFromFavs={addOrRemoveFromFavs} />} />
-            <Route path="/favoritos" element={<Favoritos favorites={favorites} addOrRemoveFromFavs={addOrRemoveFromFavs} />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/movies" element={<List addOrRemoveFromFavs={addOrRemoveFromFavs} typeShow={'movie'} />} />
+            <Route path="/series" element={<List addOrRemoveFromFavs={addOrRemoveFromFavs} typeShow={'serie'} />} />
+            <Route path="/detail" element={<Detail />} />
+            <Route path="/results" element={<Results addOrRemoveFromFavs={addOrRemoveFromFavs} />} />
+            <Route path="/favourites" element={<Favourites favourites={favourites} addOrRemoveFromFavs={addOrRemoveFromFavs} />} />
           </Routes>
         </main>
         <Footer/>

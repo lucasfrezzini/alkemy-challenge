@@ -3,6 +3,8 @@ import axios from 'axios';
 import Swal from 'sweetalert2';
 import withReactContent from 'sweetalert2-react-content';
 
+import './Login.scss';
+
 const MySwal = withReactContent(Swal);
 
 
@@ -22,7 +24,7 @@ function Login () {
         if (email=== '' || password === '' ) {
             MySwal.fire({
                 icon: 'error',
-                title: 'Los campos no pueden estar vacios!'
+                title: 'The fields cannot be empty!'
             });
             return;
         }
@@ -30,7 +32,7 @@ function Login () {
         if (email !== '' && !reg.test(email)) {
             MySwal.fire({
                 icon: 'error',
-                title: 'Debes escribir una dirección de correo electronico válida'
+                title: 'You must enter a valid email address.'
             });
             return;
         }
@@ -38,7 +40,7 @@ function Login () {
         if (email !== 'challenge@alkemy.org' || password !== 'react') {
             MySwal.fire({
                 icon: 'error',
-                title: 'Credenciales inválidas'
+                title: 'Invalid credentials'
             });
             return;
         }
@@ -49,11 +51,11 @@ function Login () {
             .then(res => {
                 MySwal.fire({
                     icon: 'success',
-                    title: 'Perfecto, ingresaste correctamente.'
+                    title: 'Perfect, you entered correctly.'
                 });
                 const tokenRecibido = res.data.token;
                 sessionStorage.setItem('token', tokenRecibido);
-                navigate('/listado');
+                navigate('/movies');
             })
     }
 
@@ -61,21 +63,21 @@ function Login () {
 
     return (
         <>
-        {token && <Navigate replace to="/listado" />}
+        {token && <Navigate replace to="/movies" />}
 
-        <h2>Fromulario de Login</h2>
+        <h2>Login form</h2>
         <form onSubmit={submitHandler}>
             <label>
-                <span>Ingrese su correo</span><br />
+                <span>Enter yout email</span><br />
                 <input type="text" name="email"/>
             </label>
             <br />
             <label>
-                <span>Ingrese su contraseña</span><br />
+                <span>Enter your password</span><br />
                 <input type="password" name="password" />
             </label>
             <br />
-            <button className='mt-3' type="submit">Ingresar</button>
+            <button className='mt-3' type="submit">Login</button>
         </form>
         </>
     );

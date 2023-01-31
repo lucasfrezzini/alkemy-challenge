@@ -6,7 +6,7 @@ import withReactContent from 'sweetalert2-react-content';
 
 const MySwal = withReactContent(Swal);
 
-export default function Resultados (props) {
+export default function Results (props) {
     let token = sessionStorage.getItem('token');
 
     let query = new URLSearchParams(window.location.search);
@@ -16,7 +16,7 @@ export default function Resultados (props) {
     
     useEffect(()=> {
 
-        const endPoint = `https://api.themoviedb.org/3/search/movie?api_key=d8ae4181638365c66eeed968ae25b657&language=es-ES&query=${keyword}&page=1&include_adult=false`;
+        const endPoint = `https://api.themoviedb.org/3/search/movie?api_key=d8ae4181638365c66eeed968ae25b657&language=en-US&query=${keyword}&page=1&include_adult=false`;
 
         axios.get(endPoint)
         .then(result => {
@@ -26,17 +26,17 @@ export default function Resultados (props) {
         .catch(error => {
             MySwal.fire({
                 icon: 'error',
-                title: 'Tuvimos un error, intente en unos minutos..'
+                title: 'We have an error, please try again in a few minutes...'
             })
         })
     }, [moviesResults]);
 
     return (
         <>
-            {!token && <Navigate replace to="/" />}
-            <h2>Buscaste: <em>{keyword}</em></h2>
+            {!token && <Navigate replace to="/login" />}
+            <h2>You searched: <em>{keyword}</em></h2>
 
-            {moviesResults.length === 0 && <h5>No hay resultados para esa búsqueda...</h5>}
+            {moviesResults.length === 0 && <h5>No results for that search...</h5>}
 
             <div className="row">
             {
@@ -56,7 +56,7 @@ export default function Resultados (props) {
                             <div className="card-body">
                                 <h5 className="card-title">{oneMovie.title}</h5>
                                 <p className="card-text">{oneMovie.overview.substring(0, 200)}...</p>
-                                <Link to={`/detalle?movieID=${oneMovie.id}`} className="btn btn-primary">View detail</Link>
+                                <Link to={`/detail?movieID=${oneMovie.id}`} className="btn btn-primary">View detail</Link>
                             </div>
                         </div>
                     </div>

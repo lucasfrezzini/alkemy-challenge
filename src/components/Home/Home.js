@@ -1,5 +1,6 @@
-import '../css/Home.css';
-import SearchForm from './SearchForm/SearchForm';
+import SearchForm from '../SearchForm/SearchForm';
+
+import './Home.scss';
 
 export default function Home() {
     return (

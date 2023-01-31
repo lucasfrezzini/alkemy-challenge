@@ -1,15 +1,17 @@
 import { Navigate, Link } from "react-router-dom";
 
-export default function Favoritos(props) {
+import './Favourites.scss';
+
+export default function Favourites(props) {
     let token = sessionStorage.getItem('token');
 
     return(
         <>
-            {!token && <Navigate replace to="/" />}
-            <h2>Favoritos</h2>
-            <div className="row">
+            {!token && <Navigate replace to="/login" />}
+            <h2>Favourites</h2>
+            <div className="row Favourites">
             {
-            props.favorites.map((movie, idx) => {
+            props.favourites.map((movie, idx) => {
                 return (
                     <div className="col-6 col-md-3 my-4" key={idx}>
                         <div className="card">
