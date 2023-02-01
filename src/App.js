@@ -16,7 +16,18 @@ import './css/app.scss';
 
 
 function App() {
-  
+  const API_KEY = 'd8ae4181638365c66eeed968ae25b657';
+  const ORDERS = [
+    'popularity.desc'
+  ]
+
+  const MOVIES_QUERYS = [
+    'top_rated',
+    'popular',
+    'upcoming',
+    'now_playing'
+  ]
+
   const [favourites, setFavorites ] = useState([]);
 
   useEffect(()=> {
@@ -40,18 +51,20 @@ function App() {
     const btn = e.currentTarget;
     const parent = btn.parentElement;
 
-    const imgURL = parent.querySelector('img').getAttribute('src');
+    const poster_path = parent.querySelector('img').dataset.posterPath;
     const title = parent.querySelector('h5').innerText;
-    const movieID = btn.dataset.movieId;
+    const vote_average = parent.querySelector('.average').innerText;
+    const id = btn.dataset.id;
 
     const movieData = {
-      imgURL,
+      poster_path,
       title,
-      movieID
+      vote_average,
+      id
     }
 
     let movieIsInArray = tempMoviesInFavs.find(movie => {
-      return movie.movieID === movieData.movieID;
+      return movie.id === movieData.id;
     });
 
     if (!movieIsInArray) {
@@ -61,7 +74,7 @@ function App() {
       console.log('Se agrego peli')
     } else {
       let moviesLeft = tempMoviesInFavs.filter( oneMovie =>{
-        return oneMovie.movieID !== movieData.movieID;
+        return oneMovie.id !== movieData.id;
       })
       localStorage.setItem('favs', JSON.stringify(moviesLeft));
       setFavorites(moviesLeft);
@@ -77,8 +90,7 @@ function App() {
           <Routes>
             <Route exact path="/" element={<Home addOrRemoveFromFavs={addOrRemoveFromFavs} />} />
             <Route path="/login" element={<Login />} />
-            <Route path="/movies" element={<List addOrRemoveFromFavs={addOrRemoveFromFavs} typeShow={'movie'} />} />
-            <Route path="/series" element={<List addOrRemoveFromFavs={addOrRemoveFromFavs} typeShow={'serie'} />} />
+            <Route path="/movies" element={<List addOrRemoveFromFavs={addOrRemoveFromFavs} />} />
             <Route path="/detail" element={<Detail />} />
             <Route path="/results" element={<Results addOrRemoveFromFavs={addOrRemoveFromFavs} />} />
             <Route path="/favourites" element={<Favourites addOrRemoveFromFavs={addOrRemoveFromFavs} />} />

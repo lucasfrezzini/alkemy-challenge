@@ -27,27 +27,6 @@
             text-shadow: 1px 1px 2px #0000006b;
         }
         
-        form {
-        justify-content: center;
-            input {
-                height: 50px;
-                padding-left: 30px;
-                border: none;
-                outline: none;
-                border-top-left-radius: 50px;
-                border-bottom-left-radius: 50px;
-                width: 60%;
-            }
-    
-            button {
-                border-top-right-radius: 50px;
-                border-bottom-right-radius: 50px;
-                border: none;
-                padding-right: 30px;
-                padding-left: 30px;
-                background-color: var(--primary);
-            }
-        }
     }
 }
 

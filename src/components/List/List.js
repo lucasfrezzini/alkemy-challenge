@@ -17,7 +17,7 @@ function List(props) {
     const [moviesList, setMoviesList] = useState([]);
     
     useEffect(() => {
-        const endPoint = "https://api.themoviedb.org/3/discover/movie?api_key=d8ae4181638365c66eeed968ae25b657&language=en-US&sort_by=popularity.desc&include_adult=false"
+        const endPoint = "https://api.themoviedb.org/3/movie/upcoming?api_key=d8ae4181638365c66eeed968ae25b657"
         axios.get(endPoint)
             .then(response => {
                 const apiData = response.data;

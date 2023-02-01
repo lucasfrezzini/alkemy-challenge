@@ -14,7 +14,7 @@ export default function Card(props){
         if (favsInLocal != null) {
             const favsArray = JSON.parse(favsInLocal);
             const favourite_add = favsArray.some((oneMovie) => {
-                return oneMovie.movieID == movie.id;
+                return oneMovie.id == movie.id;
             });
             setInFav(favourite_add);
         }
@@ -24,11 +24,11 @@ export default function Card(props){
         <div className="col-6 col-md-3 my-4" key={idx}>
             <div className="Card">
                 <Link to={`/detail?movieID=${movie.id}`} >
-                    <img src={`http://image.tmdb.org/t/p/original${movie.poster_path}`} className="card-img-top" alt="..." />
+                    <img src={`http://image.tmdb.org/t/p/original${movie.poster_path}`} data-poster-path={movie.poster_path} className="card-img-top" alt="..." />
                 </Link>
                 <button 
                     onClick={addOrRemoveFromFavs} 
-                    data-movie-id={movie.id}
+                    data-id={movie.id}
                     className={`btn_favourite ${inFav ? "btn_favourite__add" : ""}`}>
                     {inFav 
                         ? <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-bookmark-check-fill" viewBox="0 0 16 16">
