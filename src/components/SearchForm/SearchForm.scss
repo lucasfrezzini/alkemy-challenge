@@ -1,4 +1,4 @@
-form {
+.SearchForm {
     justify-content: center;
 
     input {
@@ -31,7 +31,7 @@ form {
     }
 }
 
-.form-header {
+.SearchForm.form-header {
     input {
         height: 35px;
         min-width: 300px;

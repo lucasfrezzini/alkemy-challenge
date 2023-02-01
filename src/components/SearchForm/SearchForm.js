@@ -32,7 +32,7 @@ export default function SearchForm (props) {
     }
     
     return(
-        <form className={`d-flex ${props.header ? "form-header" : ""}`} role="search" onSubmit={submitHandler}>
+        <form className={`SearchForm d-flex ${props.header ? "form-header" : ""}`} role="search" onSubmit={submitHandler}>
             <input className="" type="search" name="keyword" placeholder="Search your movie..." aria-label="Search" />
             <button className="" type="submit">
                 {props.header ?

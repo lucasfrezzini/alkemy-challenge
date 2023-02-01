@@ -5,6 +5,7 @@ import Swal from 'sweetalert2';
 import withReactContent from 'sweetalert2-react-content';
 
 import Card from "../Card/Card";
+import { endPoints } from "../../utils/endpoints";
 
 import './List.scss';
 
@@ -17,11 +18,11 @@ function List(props) {
     const [moviesList, setMoviesList] = useState([]);
     
     useEffect(() => {
-        const endPoint = "https://api.themoviedb.org/3/movie/upcoming?api_key=d8ae4181638365c66eeed968ae25b657"
+        const endPoint = endPoints[props.endPoint];
         axios.get(endPoint)
             .then(response => {
                 const apiData = response.data;
-                setMoviesList(apiData.results)
+                props.cant_movies > 0 ? setMoviesList(apiData.results.slice(0, props.cant_movies)) : setMoviesList(apiData.results);
             })
             .catch(e => {
                 MySwal.fire({
@@ -37,7 +38,7 @@ function List(props) {
             <div className="container">
             <div className="row">
             {
-            moviesList.slice(0, 4).map((movie, idx) => {
+            moviesList.map((movie, idx) => {
                 return (
                     <Card key={idx} movie={movie} addOrRemoveFromFavs={props.addOrRemoveFromFavs} />
                 );

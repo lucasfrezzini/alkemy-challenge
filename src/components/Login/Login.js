@@ -4,6 +4,8 @@ import Swal from 'sweetalert2';
 import withReactContent from 'sweetalert2-react-content';
 
 import './Login.scss';
+import logo from '../../assets/img/logo-primary.png';
+
 
 const MySwal = withReactContent(Swal);
 
@@ -64,21 +66,27 @@ function Login () {
     return (
         <>
         {token && <Navigate replace to="/" />}
-
-        <h2>Login form</h2>
-        <form onSubmit={submitHandler}>
-            <label>
-                <span>Enter yout email</span><br />
-                <input type="text" name="email"/>
-            </label>
-            <br />
-            <label>
-                <span>Enter your password</span><br />
-                <input type="password" name="password" />
-            </label>
-            <br />
-            <button className='mt-3' type="submit">Login</button>
-        </form>
+        <div className="container">
+            <div className="row">
+                <section className="Login">
+                    <img src={logo}></img>
+                    <h2>Login form</h2>
+                    <form onSubmit={submitHandler}>
+                        <label>
+                            <span>Enter yout email</span><br />
+                            <input type="text" name="email"/>
+                        </label>
+                        <br />
+                        <label>
+                            <span>Enter your password</span><br />
+                            <input type="password" name="password" />
+                        </label>
+                        <br />
+                        <button className='mt-3' type="submit">Login</button>
+                    </form>
+                </section>
+            </div>
+        </div>
         </>
     );
 }

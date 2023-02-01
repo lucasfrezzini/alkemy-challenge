@@ -4,11 +4,10 @@ import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
 import Home from './components/Home/Home';
 import Login from "./components/Login/Login";
-import List from './components/List/List';
+import Movies from './components/Movies/Movies';
 import Detail from './components/Detail/Detail';
 import Results from './components/Results/Results';
 import Favourites from './components/Favourites/Favourites';
-
 
 // Styles
 import './css/bootstrap.min.css'
@@ -16,17 +15,6 @@ import './css/app.scss';
 
 
 function App() {
-  const API_KEY = 'd8ae4181638365c66eeed968ae25b657';
-  const ORDERS = [
-    'popularity.desc'
-  ]
-
-  const MOVIES_QUERYS = [
-    'top_rated',
-    'popular',
-    'upcoming',
-    'now_playing'
-  ]
 
   const [favourites, setFavorites ] = useState([]);
 
@@ -90,7 +78,7 @@ function App() {
           <Routes>
             <Route exact path="/" element={<Home addOrRemoveFromFavs={addOrRemoveFromFavs} />} />
             <Route path="/login" element={<Login />} />
-            <Route path="/movies" element={<List addOrRemoveFromFavs={addOrRemoveFromFavs} />} />
+            <Route path="/movies" element={<Movies title={'Discover movies'} endPoint={'discover_popularity'} cant_movies={20} addOrRemoveFromFavs={addOrRemoveFromFavs} />} />
             <Route path="/detail" element={<Detail />} />
             <Route path="/results" element={<Results addOrRemoveFromFavs={addOrRemoveFromFavs} />} />
             <Route path="/favourites" element={<Favourites addOrRemoveFromFavs={addOrRemoveFromFavs} />} />

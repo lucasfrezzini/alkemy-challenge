@@ -6,9 +6,10 @@
     a {
         color: var(--gray);
 
-        &:hover {
+        &:hover, &:active, &:focus {
             color: var(--gray);
         }
+        
     }
 
     .navbar-brand {
