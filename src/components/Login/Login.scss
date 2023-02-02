@@ -8,11 +8,19 @@
 
     h2 {
         font-size: 2.2rem;
-        margin: 40px 0;
+        margin: 40px 0 80px;
     }
 
     form {
         color: var(--gray);
+
+        label {
+            text-align: left;
+            span {
+                font-family: var(--ff-primary);
+                text-transform: uppercase;
+            }
+        }
         
         input {
             margin: 10px 0 30px 0;

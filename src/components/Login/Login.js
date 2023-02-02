@@ -73,7 +73,7 @@ function Login () {
                     <h2>Login form</h2>
                     <form onSubmit={submitHandler}>
                         <label>
-                            <span>Enter yout email</span><br />
+                            <span>Enter your email</span><br />
                             <input type="text" name="email"/>
                         </label>
                         <br />
