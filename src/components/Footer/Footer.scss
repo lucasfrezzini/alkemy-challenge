@@ -1,0 +1,15 @@
+.Footer {
+    border: none;
+
+    p, ul, a {
+        color: var(--gray);
+    }
+    
+    img {
+        width: 50px;
+    }
+
+    a:hover, a:focus, a:active {
+        color: var(--primary);
+    }
+}
