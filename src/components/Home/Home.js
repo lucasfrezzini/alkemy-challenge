@@ -50,7 +50,7 @@ export default function Home(props) {
                 </section>
                 <section>
                     <div className="container section-header">
-                        <h2>Upcoming movies</h2>
+                        <h2>Trending movies</h2>
                         <Link to={'/movies'} className="btn btn_primary">
                             View more
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-arrow-right" viewBox="0 0 16 16">
@@ -59,8 +59,8 @@ export default function Home(props) {
                         </Link>
                     </div>
                     <List 
-                        endPoint={'upcoming'}
-                        cant_movies={4}
+                        endPoint={'trending'}
+                        cant_movies={8}
                         addOrRemoveFromFavs={props.addOrRemoveFromFavs} />
                 </section>
             </section>

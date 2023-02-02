@@ -26,6 +26,7 @@ export default function Card(props){
                 <Link to={`/detail?movieID=${movie.id}`} >
                     <img src={`http://image.tmdb.org/t/p/original${movie.poster_path}`} data-poster-path={movie.poster_path} className="card-img-top" alt="..." />
                 </Link>
+                {addOrRemoveFromFavs &&
                 <button 
                     onClick={addOrRemoveFromFavs} 
                     data-id={movie.id}
@@ -39,8 +40,9 @@ export default function Card(props){
                         </svg>
                     }
                 </button>
+                }
                 <span className="average">
-                    {movie.vote_average}
+                    {movie.vote_average.toFixed(1)}
                 </span>
                 <div className="card-body">
                     <h5 className="card-title">{movie.title}</h5>

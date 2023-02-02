@@ -1,0 +1,119 @@
+.Detail {
+    position:relative;
+
+    .movie-poster {
+        width: 100%;
+        min-height: 600px;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: top;
+        background-attachment: fixed;
+        padding:100px 0 150px;
+
+        .movie-hero {
+            display: grid;
+            grid-template-columns: 1fr 5fr;
+            gap: 40px;
+
+            padding: 40px;
+            border-radius: 40px;
+            background-color: rgba(26,27,37,0.8);
+
+            img {
+                width: 100%;
+                border-radius: 20px;
+            }
+
+            h1, h4, p {
+                color: var(--gray);
+            }
+
+            p:first-of-type {
+              display: flex;
+              align-items: center;
+
+              svg {
+                margin-right: 10px;
+              }
+
+              span {
+                margin: 0 10px;
+              }
+
+              a {
+                font-family: var(--ff-primary);
+                text-transform: uppercase;
+                font-size: 1.2rem;
+                font-weight: bold;
+                margin: 0 5px;
+                padding: 5px 10px;
+                text-decoration: none;
+                border-radius: 5px;
+                color: var(--black);
+                background-color: var(--primary);
+              }
+            }
+
+            p {
+                font-size: 1.3rem;
+            }
+            
+            h4 {
+                margin-top: 40px;
+            }
+
+        }
+
+    }
+
+    .movie-detail {
+        .movie-detail__bg{
+            background: var(--secondary);
+            background: linear-gradient(180deg, var(--secondary) 0%, var(--black) 80%);
+            background-repeat: no-repeat;
+            margin-top: -100px;
+            border-radius: 40px;
+            padding: 40px;
+        }
+
+        h2 {
+            margin-bottom: 20px;
+            margin-top: 50px;
+
+            &:first-of-type {
+                margin-top: 0;
+            }
+        }
+
+        article {
+            margin-bottom: 50px;
+        }
+
+        .characters {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            gap: 20px;
+
+            .card {
+                border: none;
+                border-radius: 0;
+                img {
+                    border-radius: 0;
+                }
+
+                .card-body {
+                    background-color: var(--black);
+                    color: var(--gray);
+                    padding: 20px !important;
+                }
+            }
+        }
+
+        .crew {
+            color: var(--gray);
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 40px;
+        }
+    }
+}

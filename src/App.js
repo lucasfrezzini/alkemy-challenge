@@ -23,7 +23,6 @@ function App() {
       if (favsInLocal != null) {
           const favsArray = JSON.parse(favsInLocal);
           setFavorites(favsArray);
-          console.log(favsArray);
       }
   }, [])
 

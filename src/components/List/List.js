@@ -18,7 +18,7 @@ function List(props) {
     const [moviesList, setMoviesList] = useState([]);
     
     useEffect(() => {
-        const endPoint = endPoints[props.endPoint];
+        const endPoint = props.endPoint ? endPoints[props.endPoint] : props.endPointFull;
         axios.get(endPoint)
             .then(response => {
                 const apiData = response.data;
