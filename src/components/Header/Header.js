@@ -30,9 +30,6 @@ function Header (props) {
                         <li className="nav-item">
                             <Link className="nav-link" to="/about">About us</Link>
                         </li>
-                        <li className="nav-item">
-                            <Link className="nav-link" to="/contact">Contact</Link>
-                        </li>
                         { favourites.length > 0 &&
                         <li className="nav-item">
                             <Link className="nav-link" to="/favourites">Favourites</Link>
