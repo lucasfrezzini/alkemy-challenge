@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
 import './Card.scss';
+import no_movie from '../../assets/img/no-movie.jpg';
 
 export default function Card(props){
     const { movie, idx, addOrRemoveFromFavs } = props;
@@ -23,7 +24,7 @@ export default function Card(props){
         <div className="col-6 col-md-3 my-4" key={idx}>
             <div className="Card">
                 <Link to={`/detail?movieID=${movie.id}`} >
-                    <img src={`http://image.tmdb.org/t/p/original${movie.poster_path}`} data-poster-path={movie.poster_path} className="card-img-top" alt="..." />
+                    <img src={movie.poster_path != null ? `http://image.tmdb.org/t/p/original${movie.poster_path}` : no_movie } data-poster-path={movie.poster_path} className="card-img-top" alt="..." />
                 </Link>
                 {addOrRemoveFromFavs &&
                 <button 

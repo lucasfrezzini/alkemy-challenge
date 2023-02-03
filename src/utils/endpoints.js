@@ -26,5 +26,5 @@ export const endPoints = {
     discover_popularity: `https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}&language=${LANGUAGE}&sort_by=${DISCOVER_SORTS.popularity}`,
     discover_revenue: `https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}&language=${LANGUAGE}&sort_by=${DISCOVER_SORTS.revenue}`,
     discover_release_date: `https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}&language=${LANGUAGE}&sort_by=${DISCOVER_SORTS.release_date}`,
-    discover_vote_average: `https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}&language=${LANGUAGE}&sort_by=${DISCOVER_SORTS.vote_average}`
+    discover_vote_average: `https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}&language=${LANGUAGE}&sort_by=${DISCOVER_SORTS.vote_average}`,
 }

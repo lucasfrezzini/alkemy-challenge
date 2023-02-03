@@ -1,5 +1,4 @@
 import List from "../List/List";
-import { Link } from "react-router-dom";
 
 export default function Movies(props) {
     const { title, endPoint, cant_movies, addOrRemoveFromFavs } = props;
