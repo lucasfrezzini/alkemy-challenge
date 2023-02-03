@@ -7,6 +7,7 @@ import Login from "./components/Login/Login";
 import Movies from './components/Movies/Movies';
 import Detail from './components/Detail/Detail';
 import Results from './components/Results/Results';
+import About from './components/About/About';
 import Favourites from './components/Favourites/Favourites';
 
 // Styles
@@ -79,6 +80,7 @@ function App() {
             <Route path="/detail" element={<Detail />} />
             <Route path="/results" element={<Results addOrRemoveFromFavs={addOrRemoveFromFavs} />} />
             <Route path="/favourites" element={<Favourites addOrRemoveFromFavs={addOrRemoveFromFavs} />} />
+            <Route path="/about" element={<About />} />
           </Routes>
         </main>
         <Footer/>
