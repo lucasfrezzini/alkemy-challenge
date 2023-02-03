@@ -40,7 +40,7 @@ function App() {
 
     const poster_path = parent.querySelector('img').dataset.posterPath;
     const title = parent.querySelector('h5').innerText;
-    const vote_average = parent.querySelector('.average').innerText;
+    const vote_average = Number(parent.querySelector('.average').innerText);
     const id = btn.dataset.id;
 
     const movieData = {

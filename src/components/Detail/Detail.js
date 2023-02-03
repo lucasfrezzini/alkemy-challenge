@@ -8,8 +8,8 @@ import withReactContent from 'sweetalert2-react-content';
 import { LANGUAGE, API_KEY } from "../../utils/endpoints";
 import toHoursAndMinutes from "../../utils/utils";
 
-// import no_movie from "../../assets/img/no_movie.jpg";
-// import no_character from "../../assets/img/no_character.jpg";
+import no_movie from "../../assets/img/no-movie.jpg";
+import no_character from "../../assets/img/no-character.jpg";
 
 import './Detail.scss';
 
@@ -92,7 +92,7 @@ export default function Detail() {
             <div className="movie-poster" style={{ backgroundImage: "url(http://image.tmdb.org/t/p/original" + movieData.backdrop_path + ")" }}>
                 <div className="container">
                     <div className="movie-hero">
-                        <img src={`http://image.tmdb.org/t/p/original${movieData.poster_path}`} alt={movieData.title} />
+                        <img src={movieData.poster_path != null ? `http://image.tmdb.org/t/p/original${movieData.poster_path}` : no_movie } alt={movieData.title} />
                         <div>
                             <h1>{movieData.title}</h1>
                             <p>
@@ -136,7 +136,7 @@ export default function Detail() {
                                 return(
                                     <div className="card" key={idx}>
                                         <img 
-                                            src={`http://image.tmdb.org/t/p/original${oneCast.profile_path}`} 
+                                            src={oneCast.profile_path !== null ? `http://image.tmdb.org/t/p/original${oneCast.profile_path}` : no_character } 
                                             alt={oneCast.title} 
                                             className="card-img-top" />
                                         <div className="card-body">
