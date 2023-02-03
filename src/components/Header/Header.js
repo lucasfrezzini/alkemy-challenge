@@ -28,15 +28,15 @@ function Header (props) {
                             <Link className="nav-link" to="/movies">Movies</Link>
                         </li>
                         <li className="nav-item">
-                            <Link className="nav-link" to="/">About us</Link>
+                            <Link className="nav-link" to="/about">About us</Link>
                         </li>
                         <li className="nav-item">
-                            <Link className="nav-link" to="/">Contact</Link>
+                            <Link className="nav-link" to="/contact">Contact</Link>
                         </li>
                         { favourites.length > 0 &&
-                        <li className="nav-item d-flex align-items-center">
+                        <li className="nav-item">
                             <Link className="nav-link" to="/favourites">Favourites</Link>
-                            <span className="badge bg-secondary">{favourites.length}</span>
+                            <span className="badge">{favourites.length}</span>
                         </li>
                         }
                     </ul>

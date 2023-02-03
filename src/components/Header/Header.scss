@@ -26,7 +26,10 @@
 
         font-family: var(--ff-primary);
     }
-
+    .nav-item {
+        position: relative;
+    }
+    
     .nav-link {
         padding: 25px 15px;
         transition: all .3s;
@@ -35,5 +38,13 @@
         &:hover{
             border-bottom: 4px solid var(--primary);
         }
+    }
+
+    .badge {
+        background-color: var(--primary);
+        color: var(--black);
+        position: absolute;
+        top: 8px;
+        right: -7px;
     }
 }
