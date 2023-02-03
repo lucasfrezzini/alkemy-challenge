@@ -77,7 +77,7 @@ function App() {
             <Route exact path="/" element={<Home addOrRemoveFromFavs={addOrRemoveFromFavs} />} />
             <Route path="/login" element={<Login />} />
             <Route path="/movies" element={<Movies title={'Discover movies'} endPoint={'discover_popularity'} cant_movies={20} addOrRemoveFromFavs={addOrRemoveFromFavs} />} />
-            <Route path="/detail" element={<Detail />} />
+            <Route path="/detail" element={<Detail />}/>
             <Route path="/results" element={<Results addOrRemoveFromFavs={addOrRemoveFromFavs} />} />
             <Route path="/favourites" element={<Favourites addOrRemoveFromFavs={addOrRemoveFromFavs} />} />
             <Route path="/about" element={<About />} />
