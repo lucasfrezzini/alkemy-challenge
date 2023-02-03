@@ -35,6 +35,10 @@ export default function Detail() {
             .then(response => {
                 const apiData = response.data;
                 setMovieData(apiData);
+                return apiData
+            })
+            .then((data)=>{
+                setRuntime(toHoursAndMinutes(data.runtime));
             })
             .catch(e => {
                 MySwal.fire({
@@ -51,6 +55,13 @@ export default function Detail() {
             .then(response => {
                 const apiData = response.data;
                 setmovieCredits(apiData);
+                return apiData
+            })
+            .then(data => {
+                const crewSorted = data.crew.sort((a,b)=>{
+                    return b.popularity - a.popularity;
+                })
+                setmovieCreditsCrew(crewSorted);
             })
             .catch(e => {
                 MySwal.fire({
@@ -59,22 +70,6 @@ export default function Detail() {
                 })
             })
     }, [setmovieCredits])
-
-    useEffect(()=>{
-        if (movieCredits != null) {
-            const crewSorted = movieCredits.crew.sort((a,b)=>{
-                return b.popularity - a.popularity;
-            })
-            setmovieCreditsCrew(crewSorted);
-        }
-    }, [movieData])
-
-
-    useEffect(()=>{
-        if (movieData != null) {
-            setRuntime(toHoursAndMinutes(movieData.runtime));
-        }
-    }, [movieData])
 
     return(
         <>
@@ -121,8 +116,12 @@ export default function Detail() {
             </div>
             <section className="movie-detail">
                 <div className="container">
+                    {movieCredits &&
                     <div className="row movie-detail__bg">
-                        <h2>Cast principal</h2>
+                        {(movieCredits.crew.length == 0 || movieCredits.cast.length == 0) && <h2>Not info for this movie 😭</h2>}
+                        {movieCredits.cast.length != 0 &&
+                        <>
+                        <h2> Cast principal</h2>
                         <article className="characters">
                             {
                             !movieCredits ?
@@ -136,7 +135,7 @@ export default function Detail() {
                                 return(
                                     <div className="card" key={idx}>
                                         <img 
-                                            src={oneCast.profile_path !== null ? `http://image.tmdb.org/t/p/original${oneCast.profile_path}` : no_character } 
+                                            src={oneCast.profile_path !== null ? `http://image.tmdb.org/t/p/w500${oneCast.profile_path}` : no_character } 
                                             alt={oneCast.title} 
                                             className="card-img-top" />
                                         <div className="card-body">
@@ -147,17 +146,21 @@ export default function Detail() {
                                 )
                             })}
                         </article>
+                        </>
+                        }
+                        {movieCredits.crew.length != 0 && 
+                        <>
                         <h2>Crew principal</h2>
                         <article className="crew">
                             {
-                            !movieCredits ?
+                            !movieCreditsCrew ?
                             <div className="d-flex justify-content-center">
                                 <div className="spinner-border" role="status">
                                 <span className="visually-hidden">Loading...</span>
                                 </div>
                             </div>
                             :
-                            movieCredits.crew.slice(0, 24).map((oneCrew, idx)=>{
+                            movieCreditsCrew.slice(0, 24).map((oneCrew, idx)=>{
                                 return(
                                     <div key={idx}>
                                         <h5 className="card-title">{oneCrew.name}</h5>
@@ -166,12 +169,18 @@ export default function Detail() {
                                 )
                             })}
                         </article>
+                        </>
+                        } 
+                        {!(movieCredits.crew.length == 0 && movieCredits.cast.length == 0) &&
+                        <>
                         <h2>Recommended movies</h2>
                         <List 
                             endPointFull={`https://api.themoviedb.org/3/movie/${movieID}/recommendations?api_key=${API_KEY}&language=${LANGUAGE}`}
                             cant_movies={8} />
+                        </>
+                        }
                     </div>
-
+                    }
                 </div>
             </section>
         </section>

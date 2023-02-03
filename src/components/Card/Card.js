@@ -24,7 +24,7 @@ export default function Card(props){
         <div className="col-6 col-md-3 my-4" key={idx}>
             <div className="Card">
                 <Link to={`/detail?movieID=${movie.id}`} >
-                    <img src={movie.poster_path != null ? `http://image.tmdb.org/t/p/original${movie.poster_path}` : no_movie } data-poster-path={movie.poster_path} className="card-img-top" alt="..." />
+                    <img src={movie.poster_path != null ? `http://image.tmdb.org/t/p/w500${movie.poster_path}` : no_movie } data-poster-path={movie.poster_path} className="card-img-top" alt="..." />
                 </Link>
                 {addOrRemoveFromFavs &&
                 <button 
