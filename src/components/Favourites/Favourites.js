@@ -27,7 +27,6 @@ export default function Favourites(props) {
                     <div className="row Favourites">
                         {
                         favourites.map((movie, idx) => {
-                            console.log(movie);
                             return (
                                 <Card key={idx} movie={movie} addOrRemoveFromFavs={props.addOrRemoveFromFavs} />
                             );

@@ -7,10 +7,9 @@ export default function Card(props){
     const { movie, idx, addOrRemoveFromFavs } = props;
     const [inFav, setInFav ] = useState(false);
 
-    const favsInLocal = localStorage.getItem('favs');
+    let favsInLocal = localStorage.getItem('favs');
 
     useEffect(()=> {
-
         if (favsInLocal != null) {
             const favsArray = JSON.parse(favsInLocal);
             const favourite_add = favsArray.some((oneMovie) => {

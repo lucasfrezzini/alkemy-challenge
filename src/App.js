@@ -58,14 +58,12 @@ function App() {
       tempMoviesInFavs.push(movieData);
       localStorage.setItem('favs', JSON.stringify(tempMoviesInFavs));
       setFavorites(tempMoviesInFavs);
-      console.log('Se agrego peli')
     } else {
       let moviesLeft = tempMoviesInFavs.filter( oneMovie =>{
         return oneMovie.id !== movieData.id;
       })
       localStorage.setItem('favs', JSON.stringify(moviesLeft));
       setFavorites(moviesLeft);
-      console.log('se quito peli');
     }
   }
 
