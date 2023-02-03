@@ -19,19 +19,23 @@ export default function Favourites(props) {
     return(
         <>
             {!token && <Navigate replace to="/login" />}
-            <div className="container">
-                <h2>Favourites</h2>
-                <div className="row Favourites">
-                {
-                favourites.map((movie, idx) => {
-                    console.log(movie);
-                    return (
-                        <Card key={idx} movie={movie} addOrRemoveFromFavs={props.addOrRemoveFromFavs} />
-                    );
-                })
-                }
+            <section>
+                <div className="container section-header">
+                    <h2>Favourites</h2>
                 </div>
-            </div>
+                <div className="container">
+                    <div className="row Favourites">
+                        {
+                        favourites.map((movie, idx) => {
+                            console.log(movie);
+                            return (
+                                <Card key={idx} movie={movie} addOrRemoveFromFavs={props.addOrRemoveFromFavs} />
+                            );
+                        })
+                        }
+                    </div>
+                </div>
+            </section>
         </>
     )
 }
