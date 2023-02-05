@@ -16,7 +16,7 @@ const MySwal = withReactContent(Swal);
 function List(props) {
 
     let token = sessionStorage.getItem('token');
-    const [moviesList, setMoviesList] = useState([]);
+    const [moviesList, setMoviesList] = useState(null);
     
     useEffect(() => {
         const endPoint = props.endPoint ? endPoints[props.endPoint] : props.endPointFull;
@@ -39,6 +39,9 @@ function List(props) {
             <div className="container">
             <div className="row">
             {
+            moviesList == null ?
+            <SkeletonCard />
+            :
             moviesList.length > 0 ?
             moviesList.map((movie, idx) => {
                 return (
@@ -46,7 +49,7 @@ function List(props) {
                 );
             })
             : 
-            <SkeletonCard />
+            <p>We had no results related to the search.</p>
             }
             </div>
             </div>

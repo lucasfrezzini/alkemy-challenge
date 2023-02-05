@@ -10,7 +10,7 @@ function Footer () {
     return(
         <div className="container">
             <footer className="Footer d-flex flex-wrap justify-content-between align-items-center">
-                <p className="col-md-4 mb-0">©{y} MOVIEMOVIE, Inc</p>
+                <p className="col-md-4 mb-0">©{y} CinePLUS, Inc</p>
 
                 {<Link to="/"><img src={logo} alt="Logo site"/></Link>}
 
