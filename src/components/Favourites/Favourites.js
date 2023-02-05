@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Navigate, Link } from "react-router-dom";
+import { Navigate } from "react-router-dom";
 import Card from "../Card/Card";
 
 import './Favourites.scss';

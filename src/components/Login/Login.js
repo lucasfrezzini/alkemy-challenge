@@ -17,11 +17,11 @@ function Login () {
 
     const submitHandler = (e) => {
         e.preventDefault();
-        const email = e. target.email.value;
-        const password = e. target.password.value;
+        const email = e.target.email.value;
+        const password = e.target.password.value;
 
-        const reg =
-        /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
+        // eslint-disable-next-line
+        const reg = /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
 
         if (email=== '' || password === '' ) {
             MySwal.fire({
@@ -69,7 +69,7 @@ function Login () {
         <div className="container">
             <div className="row">
                 <section className="Login">
-                    <img src={logo}></img>
+                    <img src={logo} alt="Logo site"></img>
                     <h2>Login form</h2>
                     <form onSubmit={submitHandler}>
                         <label>

@@ -12,7 +12,7 @@ function Footer () {
             <footer className="Footer d-flex flex-wrap justify-content-between align-items-center">
                 <p className="col-md-4 mb-0">©{y} MOVIEMOVIE, Inc</p>
 
-                {<Link to="/"><img src={logo} /></Link>}
+                {<Link to="/"><img src={logo} alt="Logo site"/></Link>}
 
                 <ul className="nav col-md-4 justify-content-end">
                     <li className="nav-item"><Link to="/" className="nav-link px-2">Home</Link></li>

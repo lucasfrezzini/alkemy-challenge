@@ -109,7 +109,6 @@ export default function Detail() {
                             </p>
                             <h4>OVERVIEW</h4>
                             <p>{movieData.overview}</p>
-                            <h3></h3>
                         </div>
                     </div>
                 </div>
