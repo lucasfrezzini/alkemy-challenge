@@ -1,5 +1,6 @@
 .SearchForm {
     justify-content: center;
+    margin: 25px 0;
 
     input {
         height: 70px;
@@ -36,4 +37,10 @@
         height: 50px;
         min-width: 300px;
     } 
+}
+
+@media (min-width: 992px) {
+    .SearchForm{
+        margin: 0;
+    }
 }
