@@ -8,6 +8,7 @@ import Card from "../Card/Card";
 import { endPoints } from "../../utils/endpoints";
 
 import './List.scss';
+import SkeletonCard from "../Skeletons/SkeletonCard";
 
 const MySwal = withReactContent(Swal);
 
@@ -38,11 +39,14 @@ function List(props) {
             <div className="container">
             <div className="row">
             {
+            moviesList.length > 0 ?
             moviesList.map((movie, idx) => {
                 return (
                     <Card key={idx} movie={movie} addOrRemoveFromFavs={props.addOrRemoveFromFavs} />
                 );
             })
+            : 
+            <SkeletonCard />
             }
             </div>
             </div>

@@ -26,11 +26,14 @@ export default function Favourites(props) {
                 <div className="container">
                     <div className="row Favourites">
                         {
+                        favourites.length > 0 ?
                         favourites.map((movie, idx) => {
                             return (
                                 <Card key={idx} movie={movie} addOrRemoveFromFavs={props.addOrRemoveFromFavs} />
                             );
                         })
+                        :
+                        <p>You don't have any favourite movie!</p>
                         }
                     </div>
                 </div>
