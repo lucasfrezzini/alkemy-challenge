@@ -39,6 +39,11 @@
 		&:hover{
 			border-bottom: 4px solid var(--primary);
 		}
+
+		&.active {
+			color: var(--gray) !important;
+			border-bottom: 4px solid var(--primary);
+		}
 	}
 
 	.badge {
