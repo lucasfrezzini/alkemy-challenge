@@ -60,6 +60,7 @@ footer {
 	
 
 	.bi {
+		display: none;
 		margin-left: 5px;
 		transition: all .2s;
 	}
@@ -87,5 +88,13 @@ footer {
 
 	h2 {
 		margin: 0;
+	}
+}
+
+@media (min-width: 414px) {
+	.btn {
+		.bi {
+			display: inline;
+		}
 	}
 }
