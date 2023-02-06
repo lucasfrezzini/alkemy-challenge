@@ -15,7 +15,7 @@ const MySwal = withReactContent(Swal);
 
 function List(props) {
 
-    // let token = sessionStorage.getItem('token');
+    let token = sessionStorage.getItem('token');
     const [moviesList, setMoviesList] = useState(null);
     
     useEffect(() => {
@@ -35,7 +35,7 @@ function List(props) {
 
     return(
         <>
-            {!token && <Navigate replace to="/login" />}
+            {/* {!token && <Navigate replace to="/login" />} */}
             <div className="container">
             <div className="row">
             {

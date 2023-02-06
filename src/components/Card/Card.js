@@ -45,7 +45,9 @@ export default function Card(props){
                     {movie.vote_average.toFixed(1)}
                 </span>
                 <div className="card-body">
-                    <h5 className="card-title">{movie.title}</h5>
+                    <h5 className="card-title">
+                        <Link to={`/detail?movieID=${movie.id}`}>{movie.title}</Link>
+                    </h5>
                     <Link to={`/detail?movieID=${movie.id}`} className="btn btn_primary">
                         View detail
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-arrow-right" viewBox="0 0 16 16">

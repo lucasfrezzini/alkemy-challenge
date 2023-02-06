@@ -20,18 +20,22 @@
     }
 
     .card-body {
-        color: var(--gray);
         width: 100%;
         padding: 50px 20px 30px;
         position: absolute;
         bottom: -70px;
         background: rgb(255, 255, 255);
         background: linear-gradient(180deg, rgba(255, 255, 255, 0.01) 0%, rgb(26, 27, 37) 26%);
-
+        
         h5 {
             margin-top: 15px;
             margin-bottom: 15px;
             font-size: 1.6rem;
+            
+            a {
+                color: var(--gray);
+                text-decoration: none;
+            }
         }
 
     }

@@ -4,8 +4,6 @@ import SearchForm from "../SearchForm/SearchForm";
 import './Header.scss';
 import logo from '../../assets/img/logo-primary.png';
 
-import toggleMenu from "../../utils/utils.js";
-
 function Header (props) {
     const { favourites } = props;
     
@@ -22,7 +20,7 @@ function Header (props) {
                     CinePLUS
                 </Link>
                 <button onClick={toggleMenu} className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-three-dots" viewBox="0 0 16 16">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" className="bi bi-three-dots" viewBox="0 0 16 16">
                         <path d="M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z"/>
                     </svg>
                 </button>
