@@ -88,21 +88,25 @@ export default function Detail() {
                 <div className="container">
                     <div className="movie-hero">
                         <img src={movieData.poster_path != null ? `http://image.tmdb.org/t/p/original${movieData.poster_path}` : no_movie } alt={movieData.title} />
-                        <div>
+                        <div className="movie-hero__info">
                             <h1>{movieData.title}</h1>
                             <p>
+                            <span>
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-calendar3" viewBox="0 0 16 16">
                                 <path d="M14 0H2a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2zM1 3.857C1 3.384 1.448 3 2 3h12c.552 0 1 .384 1 .857v10.286c0 .473-.448.857-1 .857H2c-.552 0-1-.384-1-.857V3.857z"/>
                                 <path d="M6.5 7a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm-9 3a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm-9 3a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2z"/>
                             </svg>
                             {movieData.release_date}
-                            <span>•</span> 
+                            <em>•</em>
+                            </span>
+                            <span>
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-stopwatch" viewBox="0 0 16 16">
                                 <path d="M8.5 5.6a.5.5 0 1 0-1 0v2.9h-3a.5.5 0 0 0 0 1H8a.5.5 0 0 0 .5-.5V5.6z"/>
                                 <path d="M6.5 1A.5.5 0 0 1 7 .5h2a.5.5 0 0 1 0 1v.57c1.36.196 2.594.78 3.584 1.64a.715.715 0 0 1 .012-.013l.354-.354-.354-.353a.5.5 0 0 1 .707-.708l1.414 1.415a.5.5 0 1 1-.707.707l-.353-.354-.354.354a.512.512 0 0 1-.013.012A7 7 0 1 1 7 2.071V1.5a.5.5 0 0 1-.5-.5zM8 3a6 6 0 1 0 .001 12A6 6 0 0 0 8 3z"/>
                             </svg>
                             {runtime != undefined && runtime.hours + 'h ' + runtime.minutes + 'm'}
-                            <span>•</span> 
+                            <em>•</em>
+                            </span>
                             {movieData.genres.map((genre, idx) => {
                                 return(<Link key={idx} to="/">{genre.name}</Link>)
                             })} 
@@ -161,7 +165,7 @@ export default function Detail() {
                             :
                             movieCreditsCrew.slice(0, 24).map((oneCrew, idx)=>{
                                 return(
-                                    <div key={idx}>
+                                    <div key={idx} className="">
                                         <h5 className="card-title">{oneCrew.name}</h5>
                                         <p className="card-text">{oneCrew.job}</p>
                                     </div>
