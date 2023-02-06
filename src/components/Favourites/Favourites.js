@@ -18,7 +18,7 @@ export default function Favourites(props) {
 
     return(
         <>
-            {!token && <Navigate replace to="/login" />}
+            {/* {!token && <Navigate replace to="/login" />} */}
             <section>
                 <div className="container section-header">
                     <h2>Favourites</h2>

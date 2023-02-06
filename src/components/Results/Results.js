@@ -15,7 +15,7 @@ export default function Results (props) {
 
     return (
         <>
-            {!token && <Navigate replace to="/login" />}
+            {/* {!token && <Navigate replace to="/login" />} */}
             <section className="Results">
                 <div className="container section-header">
                     <h2>You searched: <span>{keyword}</span></h2>

@@ -15,7 +15,7 @@ const MySwal = withReactContent(Swal);
 
 function List(props) {
 
-    let token = sessionStorage.getItem('token');
+    // let token = sessionStorage.getItem('token');
     const [moviesList, setMoviesList] = useState(null);
     
     useEffect(() => {

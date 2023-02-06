@@ -73,7 +73,7 @@ export default function Detail() {
 
     return(
         <>
-        {!token && <Navigate replace to="/login" />}
+        {/* {!token && <Navigate replace to="/login" />} */}
         
 
         {!movieData ? 
