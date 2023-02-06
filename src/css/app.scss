@@ -54,7 +54,7 @@ footer {
 .btn {
 	text-decoration: none;
 	font-weight: bold;
-	font-size: 1rem;
+	font-size: 0.8rem;
 	padding: 8px 15px;
 	border-radius: 34px;
 	
@@ -88,13 +88,23 @@ footer {
 
 	h2 {
 		margin: 0;
+		font-size: 1.3rem;
+		text-transform: uppercase;
 	}
 }
 
 @media (min-width: 414px) {
 	.btn {
+		font-size: 1rem;
 		.bi {
 			display: inline;
+		}
+	}
+
+	.section-header {
+		h2 {
+			font-size: 1.5rem;
+			text-transform: initial;
 		}
 	}
 }
