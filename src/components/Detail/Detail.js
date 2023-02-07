@@ -18,8 +18,6 @@ const MySwal = withReactContent(Swal);
 export default function Detail() {
   let token = sessionStorage.getItem("token");
 
-  // let query = new URLSearchParams(window.location.search);
-  // let movieID = query.get('movieID');
   let { movieID } = useParams();
 
   const [movieData, setMovieData] = useState(null);

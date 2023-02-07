@@ -3,8 +3,13 @@ import SearchForm from "../SearchForm/SearchForm";
 import { Link } from "react-router-dom";
 
 import "./Home.scss";
+import { useEffect } from "react";
 
 export default function Home(props) {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <>
       <section className="Home">

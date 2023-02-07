@@ -1,6 +1,11 @@
+import { useEffect } from "react";
 import List from "../List/List";
 
 export default function Movies(props) {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   const { title, endPoint, cant_movies, addOrRemoveFromFavs } = props;
   return (
     <section>

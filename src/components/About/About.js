@@ -1,6 +1,11 @@
+import { useEffect } from "react";
 import "./About.scss";
 
 export default function About() {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <section>
       <div className="container section-header">

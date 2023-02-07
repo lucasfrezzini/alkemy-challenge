@@ -88,7 +88,9 @@ function App() {
                 />
               }
             />
-            <Route path="/detail/:movieID" element={<Detail />} />
+            <Route path="/detail" element={<Detail />}>
+              <Route path=":movieID" element={<Detail />} />
+            </Route>
             <Route
               path="/results/:search"
               element={<Results addOrRemoveFromFavs={addOrRemoveFromFavs} />}
