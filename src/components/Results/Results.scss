@@ -1,18 +1,18 @@
 .Results {
-    .section-header {
-        span {
-            text-transform: uppercase;
-            font-weight: bold;
-            font-size: 1.4rem;
-            color:var(--black);
-            background-color: var(--primary);
-            padding: 5px 10px;
-            border-radius: 10px;
-        }
+  .section-header {
+    span {
+      text-transform: uppercase;
+      font-weight: bold;
+      font-size: 1.4rem;
+      color: var(--black);
+      background-color: var(--primary);
+      padding: 5px 10px;
+      border-radius: 10px;
     }
+  }
 
-    .empty-warning {
-        margin-top: 50px;
-        color: var(--gray)
-    }
+  .empty-warning {
+    margin-top: 50px;
+    color: var(--gray);
+  }
 }
