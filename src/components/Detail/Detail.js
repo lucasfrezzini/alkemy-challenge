@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Navigate , Link } from "react-router-dom";
+import { Navigate , Link, useParams } from "react-router-dom";
 import List from "../List/List";
 import axios from 'axios';
 import Swal from 'sweetalert2';
@@ -20,8 +20,9 @@ const MySwal = withReactContent(Swal);
 export default function Detail() {
     let token = sessionStorage.getItem('token');
 
-    let query = new URLSearchParams(window.location.search);
-    let movieID = query.get('movieID');
+    // let query = new URLSearchParams(window.location.search);
+    // let movieID = query.get('movieID');
+    let { movieID } = useParams()
 
     const [movieData, setMovieData] = useState(null);
     const [movieCredits, setmovieCredits] = useState(null);

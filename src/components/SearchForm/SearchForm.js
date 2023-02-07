@@ -1,4 +1,4 @@
-import { useNavigate, Navigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 import Swal from 'sweetalert2';
 import withReactContent from 'sweetalert2-react-content';
@@ -26,7 +26,7 @@ export default function SearchForm (props) {
             })
         } else {
             e.currentTarget.keyword.value = "";
-            navigate(`/results?search=${keyword}`);
+            navigate(`/results/${keyword}`);
         }
 
     }

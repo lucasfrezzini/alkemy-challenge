@@ -5,7 +5,7 @@ import './Card.scss';
 import no_movie from '../../assets/img/no-movie.jpg';
 
 export default function Card(props){
-    const { movie, idx, addOrRemoveFromFavs } = props;
+    const { movie, addOrRemoveFromFavs } = props;
     const [inFav, setInFav ] = useState(false);
 
     let favsInLocal = localStorage.getItem('favs');
@@ -23,7 +23,7 @@ export default function Card(props){
     return(
         <div className="col-6 col-md-3 my-4">
             <div className="Card">
-                <Link to={`/detail?movieID=${movie.id}`}>
+                <Link to={`/detail/${movie.id}`}>
                     <img src={movie.poster_path != null ? `http://image.tmdb.org/t/p/w500${movie.poster_path}` : no_movie } data-poster-path={movie.poster_path} className="card-img-top" alt="..." />
                 </Link>
                 {addOrRemoveFromFavs &&
@@ -46,9 +46,9 @@ export default function Card(props){
                 </span>
                 <div className="card-body">
                     <h5 className="card-title">
-                        <Link to={`/detail?movieID=${movie.id}`}>{movie.title}</Link>
+                        <Link to={`/detail/${movie.id}`}>{movie.title}</Link>
                     </h5>
-                    <Link to={`/detail?movieID=${movie.id}`} className="btn btn_primary">
+                    <Link to={`/detail/${movie.id}`} className="btn btn_primary">
                         View detail
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-arrow-right" viewBox="0 0 16 16">
                             <path fillRule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"/>
