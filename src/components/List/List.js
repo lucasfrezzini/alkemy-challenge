@@ -44,10 +44,10 @@ function List(props) {
           {moviesList == null ? (
             <SkeletonCard />
           ) : moviesList.length > 0 ? (
-            moviesList.map((movie, idx) => {
+            moviesList.map((movie) => {
               return (
                 <Card
-                  key={idx}
+                  key={movie.id}
                   movie={movie}
                   addOrRemoveFromFavs={props.addOrRemoveFromFavs}
                 />

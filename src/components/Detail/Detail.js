@@ -135,9 +135,9 @@ export default function Detail() {
                         runtime.hours + "h " + runtime.minutes + "m"}
                       <em>•</em>
                     </span>
-                    {movieData.genres.map((genre, idx) => {
+                    {movieData.genres.map((genre) => {
                       return (
-                        <Link key={idx} to="/">
+                        <Link key={genre.id} to="/">
                           {genre.name}
                         </Link>
                       );
@@ -170,9 +170,9 @@ export default function Detail() {
                             </div>
                           </div>
                         ) : (
-                          movieCredits.cast.slice(0, 12).map((oneCast, idx) => {
+                          movieCredits.cast.slice(0, 12).map((oneCast) => {
                             return (
-                              <div className="card" key={idx}>
+                              <div className="card" key={oneCast.id}>
                                 <img
                                   src={
                                     oneCast.profile_path !== null
@@ -208,9 +208,9 @@ export default function Detail() {
                             </div>
                           </div>
                         ) : (
-                          movieCreditsCrew.slice(0, 24).map((oneCrew, idx) => {
+                          movieCreditsCrew.slice(0, 24).map((oneCrew) => {
                             return (
-                              <div key={idx} className="">
+                              <div key={oneCrew.id} className="">
                                 <h5 className="card-title">{oneCrew.name}</h5>
                                 <p className="card-text">{oneCrew.job}</p>
                               </div>

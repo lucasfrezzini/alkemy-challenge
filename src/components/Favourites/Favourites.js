@@ -26,10 +26,10 @@ export default function Favourites(props) {
         <div className="container">
           <div className="row Favourites">
             {favourites.length > 0 ? (
-              favourites.map((movie, idx) => {
+              favourites.map( movie => {
                 return (
                   <Card
-                    key={idx}
+                    key={movie.id}
                     movie={movie}
                     addOrRemoveFromFavs={props.addOrRemoveFromFavs}
                   />
